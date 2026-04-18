@@ -1,0 +1,14 @@
+[settings]
+experimental = true
+
+[hooks]
+cd = { shell = "bash", script = '''
+case "$PWD" in
+  "$HOME/repositories/f8n-ai/mack"|"$HOME/repositories/f8n-ai/mack"/*)
+    export CLAUDE_CONFIG_DIR="$HOME/.claude-f8n"
+    ;;
+  *)
+    export CLAUDE_CONFIG_DIR="$HOME/.config/claude"
+    ;;
+esac
+''' }
